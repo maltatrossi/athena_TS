@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Athena's</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="hand-score-container">
+        <div id="bot-bar">
+        <div id="hand-container">
+          <h2>Hand:</h2>
+          <div id="hand-id"><h1>Pair</h1></div>
+        </div>
+        <div id="score-container">
+          <h2>Score:</h2>
+          <div id="score-id"><h2>0</h2></div>
+        </div>
+      </div></div>
+
+    <div id="container">
+        <div id="dice-container">
+            <div id="dice-board">
+              <div class="dice" data-position="1">
+                <img class="dice-image" src="assets/images/dice/dice0.png" data-value="1" />
+                <input type="checkbox" class="held" />
+              </div>
+              <div class="dice" data-position="2">
+                <img class="dice-image" src="assets/images/dice/dice0.png" data-value="1" />
+                <input type="checkbox" class="held" />
+              </div>
+              <div class="dice" data-position="3">
+                <img class="dice-image" src="assets/images/dice/dice0.png" data-value="1" />
+                <input type="checkbox" class="held" />
+              </div>
+              <div class="dice" data-position="4">
+                <img class="dice-image" src="assets/images/dice/dice0.png" data-value="1" />
+                <input type="checkbox" class="held" />
+              </div>
+              <div class="dice" data-position="5">
+                <img class="dice-image" src="assets/images/dice/dice0.png" data-value="1" />
+                <input type="checkbox" class="held" />
+              </div>
+            </div>
+          </div>
+                           <button id="roll-button" onclick="(() => rollDice())()">Roll dice</button>
+                </div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
+
+
