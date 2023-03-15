@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=GFS+Neohellenic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
 /* Set body margin and padding to 0 */
 body {
@@ -18,22 +20,32 @@ body {
     background-image: url("../assets/images/elements/container.png");
 }
 
-/* Set dice-container margin-bottom to 50px */
+/* Set dice-container styling */
 #dice-container {
     display: flex;
-    justify-content: center; /* Add this line to center the dice-board container */
-}
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/images/greek_pattern.png");
+    background-repeat: repeat-x;
+    background-size: auto 30px;
+    background-position: center;
+    padding: 15px 0;
+  }
+  
 
-/* Set dice-board margin-bottom to 50px */
+/* Set dice-board styling */
 #dice-board {
     height: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
-}
-
-.dice {
+    width: auto;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dice {
     display: inline-block;
     margin: 3px;
   }
@@ -43,31 +55,36 @@ body {
     height: 75px;
     width: 75px;
     border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-
-.dice-image:hover {
-  /* Add a white overlay to give the dice an aged look */
-  background-color: rgba(255, 255, 255, 0.7);
-  transition: background-color 0.2s ease-in-out;
-}
   
-  
-  /* Hide the checkbox */
-.dice input[type="checkbox"] {
-    display: none;
+  .dice-image:hover {
+    /* Add a gold overlay to give the dice an ancient Greek look */
+    background-color: rgba(255, 215, 0, 0.5);
+    transition: background-color 0.2s ease-in-out;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   .selected .dice-image {
-    border: 2px solid blue;
+    border: 2px solid #FFD700; /* Use gold color for border */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
   }
+  
     
-/* Set dice images width to 80px and margin to 10px */
-#dice-board img {
+  /* Hide the checkbox */
+  .dice input[type="checkbox"] {
+    display: none;
+  }
+
+  
+  /* Set dice images width to 80px and margin to 10px */
+  #dice-board img {
     width: 80px;
     margin: 5px;
     align-items: center;
     justify-content: center; /* Add this line to center the dice images */
-}
+  }
 
 /* Set roll-button background image and style */
 #roll-button {
@@ -103,7 +120,7 @@ body {
         box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0);
     }
 }
-/* Set roll-button background image and style */
+
 #bot-bar {
     background-color: rgb(215, 193, 20);
     background-size: cover;
@@ -117,25 +134,189 @@ body {
     margin-left: auto;
     transition: transform 0.2s ease-in-out;
 }
+
+/* Styling for the hand-score-container */
+#hand-score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-family: 'Philosopher', sans-serif;
+  padding: 1rem;
+}
+
+/* Style for the timer element */
+#timer {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4b4b4a;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #4b4b4a;
+    padding: 0.25rem 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  
+
 /* Style for the hand-id element */
 #hand-id {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0e54d6; /* Use gold color */
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FFD700; /* Use gold color */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Style for the score element */
 #score {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #FFFFFF; /* Use white color */
-    background-color: #0B6623; /* Use dark green background color */
-    border: 2px solid #FFD700; /* Use gold border */
-    padding: 0.5rem;
-    text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFFFFF; /* Use white color */
+  background-color: #0B6623; /* Use dark green background color */
+  border: 2px solid #FFD700; /* Use gold border */
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 8px;
 }
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+  #hand-score-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
 .dice.held {
     box-shadow: 0 0 10px yellow;
+  }
+  
+  
+/* Leaderboard */
+.leaderboard {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 600px;
+    font-family: 'GFS Neohellenic', sans-serif;
+    border: 2px solid #0B6623;
+    background-color: rgba(245, 243, 240, 0.85);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaderboard h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0B6623;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .leaderboard th,
+  .leaderboard td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .leaderboard th {
+    font-weight: bold;
+    color: #0B6623;
+  }
+  
+  .leaderboard td {
+    color: #6c757d;
+  }
+  
+  @media (max-width: 600px) {
+    .leaderboard {
+      padding: 10px;
+    }
+  
+    .leaderboard h2 {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+    }
+  
+    .leaderboard th,
+    .leaderboard td {
+      padding: 6px;
+    }
+  }
+
+  /* Add ancient Greek hover effect to the leaderboard */
+.leaderboard tr:hover {
+    background-image: url('../assets/images/greek_key_pattern.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    color: #0B6623;
+    cursor: pointer;
+  }
+  
+  .leaderboard tr:hover td {
+    color: #0B6623;
+  }
+  
+  /* Prevent hover effect on table header */
+  .leaderboard thead tr:hover {
+    background-image: none;
+    color: inherit;
+    cursor: default;
+  }
+  
+  .leaderboard thead tr:hover th {
+    color: inherit;
+  }
+  
+  /* Media queries for responsiveness */
+
+@media (max-width: 480px) {
+    #dice-board {
+      flex-direction: column;
+    }
+  
+    .dice {
+      margin-bottom: 10px;
+    }
+  
+    #roll-button {
+      width: 200px;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    #dice-board {
+      width: 60%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #hand-score-container {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    #dice-board {
+      width: 40%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    #dice-board {
+      width: 30%;
+    }
   }
   
