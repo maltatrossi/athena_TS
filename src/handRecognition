@@ -1,0 +1,110 @@
+export function getHandName(diceNumbers: number[]): string {
+    const counts = countDice(diceNumbers);
+    const sortedCounts = counts.sort((a, b) => b - a);
+  
+    if (isYahtzee(sortedCounts)) {
+      return "Yahtzee";
+    } else if (isFullHouse(sortedCounts)) {
+      return "Full House";
+    } else if (isLargeStraight(diceNumbers)) {
+      return "Large Straight";
+    } else if (isSmallStraight(diceNumbers)) {
+      return "Small Straight";
+    } else if (isFourOfAKind(sortedCounts)) {
+      return "Four of a Kind";
+    } else if (isThreeOfAKind(sortedCounts)) {
+      return "Three of a Kind";
+    } else if (isTwoPair(sortedCounts)) {
+      return "Two Pair";
+    } else if (isPair(sortedCounts)) {
+      return "Pair";
+    } else {
+      return "High Card";
+    }
+  }
+  
+  function countDice(diceNumbers: number[]): number[] {
+    const counts: number[] = [0, 0, 0, 0, 0, 0];
+  
+    diceNumbers.forEach((number) => {
+      counts[number - 1]++;
+    });
+  
+    return counts;
+  }
+  
+  function isYahtzee(sortedCounts: number[]): boolean {
+    return sortedCounts[0] === 5;
+  }
+  
+  function isFullHouse(sortedCounts: number[]): boolean {
+    return sortedCounts[0] === 3 && sortedCounts[1] === 2;
+  }
+  
+  function isLargeStraight(diceNumbers: number[]): boolean {
+    const uniqueNumbers = new Set(diceNumbers);
+    return (
+      uniqueNumbers.has(2) &&
+      uniqueNumbers.has(3) &&
+      uniqueNumbers.has(4) &&
+      uniqueNumbers.has(5) &&
+      uniqueNumbers.has(6)
+    );
+  }
+  
+  function isSmallStraight(diceNumbers: number[]): boolean {
+    const uniqueNumbers = new Set(diceNumbers);
+    return (
+      uniqueNumbers.has(1) &&
+      uniqueNumbers.has(2) &&
+      uniqueNumbers.has(3) &&
+      uniqueNumbers.has(4) &&
+      uniqueNumbers.has(5)
+    );
+  }
+  
+  function isFourOfAKind(sortedCounts: number[]): boolean {
+    return sortedCounts[0] === 4;
+  }
+  
+  function isThreeOfAKind(sortedCounts: number[]): boolean {
+    return sortedCounts[0] === 3;
+  }
+  function isTwoPair(sortedCounts: number[]): boolean {
+    return sortedCounts[0] === 2 && sortedCounts[1] === 2 && sortedCounts[2] !== 2;
+  }
+  
+  function isPair(sortedCounts: number[]): boolean {
+    return sortedCounts[0] === 2 && sortedCounts[1] !== 2;
+  }
+  
+  function isHighCard(diceNumbers: number[]): boolean {
+    const uniqueNumbers = new Set(diceNumbers);
+    return (
+      !isPair(diceNumbers) &&
+      !isTwoPair(diceNumbers) &&
+      !isThreeOfAKind(diceNumbers) &&
+      !isFourOfAKind(diceNumbers) &&
+      !isFullHouse(diceNumbers) &&
+      !isSmallStraight(diceNumbers) &&
+      !isLargeStraight(diceNumbers) &&
+      uniqueNumbers.size === 5
+    );
+  }
+  
+  function getHandValue(handName: string): number {
+    const handValues: Record<string, number> = {
+      "Yahtzee": 50,
+      "Large Straight": 40,
+      "Small Straight": 30,
+      "Full House": 25,
+      "Four of a Kind": 20,
+      "Three of a Kind": 15,
+      "Two Pair": 10,
+      "Pair": 5,
+      "High Card": 0,
+    };
+  
+    return handValues[handName] || 0;
+  }
+  
