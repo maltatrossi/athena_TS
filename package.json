@@ -6,6 +6,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "firebase": "^9.17.2",
     "vite": "^2.7.11"
   },
   "devDependencies": {

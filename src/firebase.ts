@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY_HERE",
-  authDomain: "YOUR_AUTH_DOMAIN_HERE",
-  projectId: "YOUR_PROJECT_ID_HERE",
-  storageBucket: "YOUR_STORAGE_BUCKET_HERE",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID_HERE",
-  appId: "YOUR_APP_ID_HERE"
-};
+    apiKey: "AIzaSyC9UfeLFe0tooUUtiW-WKg8KWda1IJNc24",
+    authDomain: "athena-66f0b.firebaseapp.com",
+    projectId: "athena-66f0b",
+    storageBucket: "athena-66f0b.appspot.com",
+    messagingSenderId: "529731356673",
+    appId: "1:529731356673:web:f0722b014fdeb26f59d800"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

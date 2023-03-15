@@ -12,13 +12,15 @@
         <div id="bot-bar">
         <div id="hand-container">
           <h2>Hand:</h2>
-          <div id="hand-id"><h1>Pair</h1></div>
+          <div id="hand-id"><h1>Roll the dice</h1></div>
         </div>
         <div id="score-container">
           <h2>Score:</h2>
           <div id="score-id"><h2>0</h2></div>
         </div>
+        <div id="timer">00:10:00</div>
       </div></div>
+      
 
     <div id="container">
         <div id="dice-container">
@@ -44,9 +46,53 @@
                 <input type="checkbox" class="held" />
               </div>
             </div>
-          </div>
-                           <button id="roll-button" onclick="(() => rollDice())()">Roll dice</button>
+          </div><button id="Replay"></button>
+<button id="roll-button" onclick="rollDice()">Roll dice</button>
                 </div>
+                
+    <!-- Leaderboard section -->
+<!-- Leaderboard section -->
+<section class="leaderboard">
+  <h2>Leaderboard</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Score</th>
+        <th>Date/Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Player 1</td>
+        <td>1000</td>
+        <td>2023-03-14 14:00</td>
+      </tr>
+      <tr>
+        <td>Player 2</td>
+        <td>900</td>
+        <td>2023-03-14 12:30</td>
+      </tr>
+      <tr>
+        <td>Player 3</td>
+        <td>800</td>
+        <td>2023-03-14 11:15</td>
+      </tr>
+      <tr>
+        <td>Player 4</td>
+        <td>700</td>
+        <td>2023-03-13 17:45</td>
+      </tr>
+      <tr>
+        <td>Player 5</td>
+        <td>600</td>
+        <td>2023-03-13 16:00</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<script type="module" src="./src/diceRoll.ts"></script>
+<script type="module" src="./src/dice.ts"></script>
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>
